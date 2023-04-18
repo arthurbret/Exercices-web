@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="inge.png" />
+    <title>Test texte</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>"
+</head>
+<body class="bg-slate-900 ">
+        <div class="flex justify-center gap-2 mb-10">
+            <p class="text-sky-400">Vous pouvez écrire</p>
+            <input id="input-number" type="text" size="1" class="border-blue-500"></input>
+            <p class="text-sky-400">caractères au maximum</p> 
+        </div>
+        <div class="flex gap-8 justify-center mt-10">
+            <div id="counter" class="text-9xl text-green-500 text-center">--</div>
+            <div id="counter-words" class="text-9xl text-blue-500 text-center">--</div>
+        </div>
+        <textarea id="input" class="flex mx-auto bg-slate-800 h-80 w-2/3 rounded-2xl border-2 text-green-500 border-slate-500 text-xl p-4 outline-none"></textarea>
+        <div id="render" class="text-center text-purple-300"></div>
+        <div class="flex justify-center">
+            <div id="submit" class="flex justify-center mt-10 bg-slate-800 h-10 w-1/6 rounded-2xl border-2 text-green-500 border-slate-500 text-xl p-1 outline-none">Envoyer</div>
+        </div>
+</body>
+</html>

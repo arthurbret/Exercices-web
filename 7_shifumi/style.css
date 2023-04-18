@@ -1,0 +1,19 @@
+.rotating {
+    animation-name: rotate-zoom;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  @keyframes rotate-zoom {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }

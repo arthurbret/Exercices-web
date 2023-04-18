@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+      #play {
+        user-select: none; /* standard syntax */
+        -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+        -moz-user-select: none; /* mozilla browsers */
+        -khtml-user-select: none; /* webkit (konqueror) browsers */
+        -ms-user-select: none; /* IE10+ */
+    }
+    </style>
+
+    <title>Document</title>
+  </head>
+  <body class="flex items-center justify-center h-screen bg-yellow-500">
+      <div>
+      <div class="number text-black text-8xl text-center">
+         --
+      </div>
+      <div id="play" class="mt-20 cursor-pointer text-2xl bg-red-500 text-white px-4 py-2 rounded-xl">
+          Lancer le 🎲
+      </div>
+    </div>
+  </body>
+</html>

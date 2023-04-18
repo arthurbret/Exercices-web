@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+      #play {
+        user-select: none; /* standard syntax */
+        -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+        -moz-user-select: none; /* mozilla browsers */
+        -khtml-user-select: none; /* webkit (konqueror) browsers */
+        -ms-user-select: none; /* IE10+ */
+    }
+    </style>
+
+    <title>Shifumi</title>
+  </head>
+  <body class="flex flex-col justify-between h-screen bg-gray-800">
+      
+      <div class="grid md:grid-cols-2 h-full">
+        <div class="bg-blue-500   flex items-center justify-center">
+            <div id="j1" class="element rotating text-black text-8xl text-center">
+                --
+            </div>
+        </div>
+        <div class="bg-red-500   flex items-center justify-center">
+            <div id="j2" class="element rotating text-black text-8xl text-center">
+                --
+            </div>
+        </div>
+        </div>
+      <div>
+    
+        <di class="flex p-8 items-center  justify-center">
+            <div id="play" class="cursor-pointer text-2xl bg-purple-500 text-white px-4 py-2 rounded-xl">
+                Jouer
+            </div>
+        </div>
+      
+    
+    </div>
+  </body>
+</html>

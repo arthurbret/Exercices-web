@@ -1,0 +1,8 @@
+#destination {
+    background-color: red;;
+}
+
+html {
+	scroll-behavior: smooth;
+    transition-duration: 5s;
+}
