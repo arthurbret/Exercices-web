@@ -4,13 +4,18 @@ const compteur = document.querySelector('#compteur')
 
 Number(compteur.innerHTML)
 
+const options = {
+    minValue: 0,
+    maxValue: 10,
+}
+
 ajout.addEventListener('click', () => {
-    compteur.innerHTML = Number(compteur.innerHTML) + 1
+    if (Number(compteur.innerHTML) < options.maxValue) compteur.innerHTML = Number(compteur.innerHTML) + 1
     console.log(compteur.innerHTML)
 })
 
 retrait.addEventListener('click', () => {
-    if (compteur.innerHTML > 0) compteur.innerHTML = Number(compteur.innerHTML) - 1
+    if (Number(compteur.innerHTML) > options.minValue) compteur.innerHTML = Number(compteur.innerHTML) - 1
     console.log(compteur.innerHTML)
 })
 
