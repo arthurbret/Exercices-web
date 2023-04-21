@@ -24,22 +24,6 @@ const burgerList = [
     "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80",
     "ingredients": ["steak", "bacon", "pain brioché", "fromage suisse", "oignons frits", "sauce BBQ"]
     },
-
-    {
-        "nom": "BBQ Bacon Burger",
-        "description": "Un burger copieux avec un steak juteux, du bacon croustillant, du fromage suisse fondu, des oignons croustillants et une sauce BBQ fumée, le tout servi sur un pain brioché grillé.",
-        "prix": 13.99,
-        "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80",
-        "ingredients": ["steak", "bacon", "pain brioché", "fromage suisse", "oignons frits", "sauce BBQ"]
-        },
-
-        {
-            "nom": "BBQ Bacon Burger",
-            "description": "Un burger copieux avec un steak juteux, du bacon croustillant, du fromage suisse fondu, des oignons croustillants et une sauce BBQ fumée, le tout servi sur un pain brioché grillé.",
-            "prix": 13.99,
-            "img": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80",
-            "ingredients": ["steak", "bacon", "pain brioché", "fromage suisse", "oignons frits", "sauce BBQ"]
-            }
 ]
 
-export {burgerList} 
+export {burgerList}
