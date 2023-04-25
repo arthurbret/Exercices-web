@@ -21,7 +21,7 @@ burgerList.forEach(function(burger, index){
         <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${burger.nom}</h1>
         <p class="leading-relaxed mb-3">${burger.description}</p>
         <div class="flex items-center flex-wrap">
-          <a id="but-ing" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">En savoir plus sur les ingrédients
+          <a id="ingredient-button" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">En savoir plus sur les ingrédients
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
@@ -37,17 +37,27 @@ boutonDroit.addEventListener('click', () => {
   window.open("https://www.example.com", "_blank", "width=200,height=100")
 })
 
-const butIng = document.querySelectorAll('#but-ing');
+const myBtn = document.querySelector('#myBtn');
 const modal = document.querySelector('#myModal');
+const span = document.querySelector('.close');
+const ingButton = document.querySelectorAll('#ingredient-button');
 
-butIng.forEach(burger, () =>{
+myBtn.addEventListener('click', () => {
+  modal.classList.remove('hidden');
+})
+
+span.addEventListener('click', () => {
+  modal.classList.add('hidden');
+})
+ingButton.forEach(burger, () =>{
   burger.addEventListener('click', () => {
-    alert&(`tu clique sur ${burger.nom}`)
+    alert(`tu clique sur ${burger.nom}`)
     contenuModal.innerHTML = burger.ingredients;
     modal.classList.remove('hidden');
   });
 });
 
+alert('coucou')
 
 
 // Etape 8 (Bonus)
