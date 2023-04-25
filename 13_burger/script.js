@@ -1,6 +1,5 @@
 import {burgerList} from './data.js'
 const container = document.querySelector('#burger-container')
-const bouton = document.querySelector('#myBtn')
 const boutonDroit = document.querySelector('#boutonDroit')
 const contenuModal = document.querySelector('#contenu-modal')
 
