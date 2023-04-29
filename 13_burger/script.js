@@ -34,7 +34,8 @@ burgerList.forEach(function(burger, index = 0){
 })
 
 boutonDroit.addEventListener('click', () => {
-  window.open("https://www.example.com", "_blank", "width=200,height=100")
+  alert('tu clique sur le bouton')
+  signInWithPopup(auth, provider)
 })
 
 const myBtn = document.querySelector('#myBtn');
@@ -64,7 +65,6 @@ ingButton.forEach(burger, () =>{
   });
 });
 
-alert('coucou')
 
 
 // Etape 8 (Bonus)
