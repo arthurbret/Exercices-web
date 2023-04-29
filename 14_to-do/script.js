@@ -78,7 +78,7 @@ displayTodos(2)
 
 addButton.addEventListener('click', () => {
     input.value ? defaultToDo.push({done: false, name: input.value}) : ''
-    displayTodos(filterCheck.checked)
+    displayTodos(filtre.checked ? filterCheck.checked : 2)
     input.value = ''
 })
 
