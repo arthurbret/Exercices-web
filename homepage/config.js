@@ -18,21 +18,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+firebaseConfig.initializeApp(firebaseConfig);
 
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
-
-const docRef = (db, "biens");
-const docSnap = await getDoc(docRef);
-
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // docSnap.data() will be undefined in this case
-  console.log("No such document!");
-}
+const database = firebase.database();
+database.ref
 
 
 
