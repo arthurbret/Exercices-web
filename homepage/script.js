@@ -1,9 +1,29 @@
-import { propertyList } from "./data.js";
 const header = document.querySelector('#header');
 const logoHeader = document.querySelector('#logo-header');
 const container = document.querySelector('#container');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+import { getFirestore, collection, addDoc, updateDoc, deleteDoc, setDoc, getDoc, where, writeBatch, query, orderBy, doc, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
+const firebaseConfig = {
+    apiKey: "AIzaSyA7go3kpJtwMffC_AczCvsASQWHPnf1gXc",
+    authDomain: "divid-a68c4.firebaseapp.com",
+    projectId: "divid-a68c4",
+    storageBucket: "divid-a68c4.appspot.com",
+    messagingSenderId: "80011257850",
+    appId: "1:80011257850:web:ea052514f8290cdff5e643"
+  };
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// fonction pour récupèrer une collection (READ)
+const getDocument = async (collectionName) => {
+  const DocumentColRef = collection(db, collectionName);
+  const DocumentSnapshot = await getDocs(DocumentColRef);
+  const DocumentList = DocumentSnapshot.docs.map(doc => ({...doc.data(), id: doc.id}));
+  return DocumentList
+}
 
 window.addEventListener('scroll', function() {
     if (window.scrollY > 70) {
@@ -22,7 +42,7 @@ const displayProperty = (propertyList) => {
     container.innerHTML += 
 `<div class="p-4 md:w-1/3 immeuble cursor-pointer">
     <div class="h-full border-2 border-gray-300 border-opacity-60 rounded-xl overflow-hidden">
-      <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${property.img}" alt="burger image"></img>
+      <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${property.img}" alt="Photo du projet"></img>
       <div class="p-6">
         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${property.prix} €</h2>
         <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${property.nom}</h1>
@@ -40,7 +60,13 @@ const displayProperty = (propertyList) => {
   </div>`
 })}
 
-displayProperty(propertyList)
+
+const getDataFirebase = async() => {
+  const biens = await getDocument("biens")
+  console.log("biens", biens)
+  displayProperty(biens)
+}
+getDataFirebase()
 
 const immeubles = document.querySelectorAll('.immeuble')
 
