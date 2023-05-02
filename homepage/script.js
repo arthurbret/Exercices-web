@@ -17,7 +17,7 @@ window.addEventListener('scroll', function() {
     }
   });
 
-function displayProperty(propertyList) {
+const displayProperty = (propertyList) => {
  propertyList.forEach(property => {
     container.innerHTML += 
 `<div class="p-4 md:w-1/3 immeuble cursor-pointer">
@@ -42,10 +42,10 @@ function displayProperty(propertyList) {
 
 displayProperty(propertyList)
 
-const immeubles = document.querySelector('.immeuble')
+const immeubles = document.querySelectorAll('.immeuble')
 
-immeubles.forEach(immeubleHTML => {
+immeubles.forEach((immeubleHTML, index) => {
     immeubleHTML.addEventListener('click', () => {
-        console.log('click')
+        console.log(propertyList[index].nom)
     })
 })
