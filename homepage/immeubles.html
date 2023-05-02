@@ -58,36 +58,43 @@
         </div>
     </section>
     
-      <footer id="footer" class="text-gray-600 body-font">
-        <div class="container px-5 py-18 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
-          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
-            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 cursor-default" href="index.html">
-              <img src="logo-without-bg.png" width="75%" height="75%"></img>
-            </a>
-          </div>
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">STEPS</h2>
-              <nav class="list-none mb-10">
-                <li>
-                  <a href="#hero" class="text-gray-600 hover:text-gray-800">Hero</a>
-                </li>
-                <li>
-                  <a href="#step" class="text-gray-600 hover:text-gray-800">Etapes</a>
-                </li>
-                <li>
-                  <a href="#chiffres" class="text-gray-600 hover:text-gray-800">Chiffres</a>
-                </li>
-              </nav>
-            </div>
+    <footer id="footer" class="text-gray-600 body-font">
+      <div class="container px-5 py-18 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 cursor-default" href="index.html">
+            <img src="logo-without-bg.png" width="75%" height="75%"></img>
+          </a>
+        </div>
+          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">STEPS</h2>
+            <nav class="list-none mb-10">
+              <li>
+                <a href="#hero" class="text-gray-600 hover:text-gray-800">Hero</a>
+              </li>
+              <li>
+                <a href="#step" class="text-gray-600 hover:text-gray-800">Etapes</a>
+              </li>
+              <li>
+                <a href="#chiffres" class="text-gray-600 hover:text-gray-800">Chiffres</a>
+              </li>
+            </nav>
           </div>
         </div>
-        <div class="bg-gray-100">
-          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-            <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 divid —
-              <a href="https://www.linkedin.com/in/arthur-bret/" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Arthur Bret</a>
-            </p>
-          </div>
+      </div>
+      <div class="bg-gray-100">
+        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+          <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 divid —
+            <a href="https://www.linkedin.com/in/arthur-bret/" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Arthur Bret</a>
+          </p>
         </div>
-      </footer>
+      </div>
+    </footer>
+    
+    <modal id="boite-modale" class="modal hidden fixed top-[150px] left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur">
+      <div class="modal-content bg-white p-8 rounded-lg mx-auto mt-20 max-w-lg">
+        <span class="close cursor-pointer text-2xl font-bold">&times;</span>
+        <div id="modal-container"></div>
+      </div>
+    </modal>
 </body>
 </html>

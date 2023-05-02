@@ -1,6 +1,9 @@
 const header = document.querySelector('#header');
 const logoHeader = document.querySelector('#logo-header');
 const container = document.querySelector('#container');
+const modal = document.querySelector('#boite-modale');
+const modalContainer = document.querySelector('#modal-container');
+const span = document.querySelector('.close');
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getFirestore, collection, addDoc, updateDoc, deleteDoc, setDoc, getDoc, where, writeBatch, query, orderBy, doc, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
@@ -25,17 +28,21 @@ const getDocument = async (collectionName) => {
   return DocumentList
 }
 
+const headerToggle = (nbToggle) => {
+  if ((window.scrollY > 70) || (nbToggle == 1)) {
+    header.classList.remove('p-5');
+    header.classList.add('p-1');
+    logoHeader.width = logoHeader.height = "100";
+  } else {
+    header.classList.remove('p-1');
+    header.classList.add('p-5');
+    logoHeader.width = logoHeader.height = "200";
+  }
+}
+
 window.addEventListener('scroll', function() {
-    if (window.scrollY > 70) {
-      header.classList.remove('p-5');
-      header.classList.add('p-1');
-      logoHeader.width = logoHeader.height = "100";
-    } else {
-      header.classList.remove('p-1');
-      header.classList.add('p-5');
-      logoHeader.width = logoHeader.height = "200";
-    }
-  });
+  headerToggle();
+});
 
 const displayProperty = (propertyList) => {
  propertyList.forEach(property => {
@@ -65,13 +72,17 @@ const getDataFirebase = async() => {
   const biens = await getDocument("biens")
   console.log("biens", biens)
   displayProperty(biens)
+  const immeubles = document.querySelectorAll('.immeuble')
+  immeubles.forEach((immeubleHTML, index) => {
+    immeubleHTML.addEventListener('click', () => {
+       headerToggle(1)
+        modal.classList.remove('hidden')
+    })
+  })
 }
+
 getDataFirebase()
 
-const immeubles = document.querySelectorAll('.immeuble')
-
-immeubles.forEach((immeubleHTML, index) => {
-    immeubleHTML.addEventListener('click', () => {
-        console.log(propertyList[index].nom)
-    })
+span.addEventListener('click', () => {
+  modal.classList.add('hidden');
 })
