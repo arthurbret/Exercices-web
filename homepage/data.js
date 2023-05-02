@@ -16,7 +16,7 @@ const propertyList = [
     {
     "nom": "Dreamscape résidences", 
     "description": "Lotissement à l'américaine dans un village chaleureux en plein centre de la France, immense projet avec une rentabilité élevée sur le long terme",
-    "prix": 13.99,
+    "prix": "5 000 000",
     "img": "https://images.unsplash.com/photo-1559338391-e14b84a22772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     },
 ]
