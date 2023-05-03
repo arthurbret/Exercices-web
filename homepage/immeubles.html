@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="./script.js" defer="true" type="module"></script>
-    <script src="./data.js" defer="true" type="module"></script>
     <script src="./config.js" defer="true" type="module"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -16,25 +14,29 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+    <script src="./script.js" defer="true" type="module"></script>
+
+    
     <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
       
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyA7go3kpJtwMffC_AczCvsASQWHPnf1gXc",
-          authDomain: "divid-a68c4.firebaseapp.com",
-          projectId: "divid-a68c4",
-          storageBucket: "divid-a68c4.appspot.com",
-          messagingSenderId: "80011257850",
-          appId: "1:80011257850:web:ea052514f8290cdff5e643"
-        };
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA7go3kpJtwMffC_AczCvsASQWHPnf1gXc",
+        authDomain: "divid-a68c4.firebaseapp.com",
+        projectId: "divid-a68c4",
+        storageBucket: "divid-a68c4.appspot.com",
+        messagingSenderId: "80011257850",
+        appId: "1:80011257850:web:ea052514f8290cdff5e643"
+      };
       
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
       </script>
+
 </head>
 <body>
     <header class="text-white body-font bg-[#0D2352] fixed left-0 right-0 top-0 z-50">
@@ -53,7 +55,7 @@
     </header>
 
     <section class="mt-[150px]">
-        <div id="container" class="container px-5 py-24 mx-auto flex flex-wrap">
+        <div id="immo-container" class="container px-5 py-24 mx-auto flex flex-wrap">
 
         </div>
     </section>
@@ -93,7 +95,8 @@
     <modal id="boite-modale" class="modal hidden fixed top-[150px] left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur">
       <div class="modal-content bg-white p-8 rounded-lg mx-auto mt-20 max-w-lg">
         <span class="close cursor-pointer text-2xl font-bold">&times;</span>
-        <div id="modal-container"></div>
+        <div id="modal-container">
+        </div>
       </div>
     </modal>
 </body>

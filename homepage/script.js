@@ -1,6 +1,6 @@
 const header = document.querySelector('#header');
 const logoHeader = document.querySelector('#logo-header');
-const container = document.querySelector('#container');
+const container = document.querySelector('#immo-container');
 const modal = document.querySelector('#boite-modale');
 const modalContainer = document.querySelector('#modal-container');
 const span = document.querySelector('.close');
@@ -75,14 +75,28 @@ const getDataFirebase = async() => {
   const immeubles = document.querySelectorAll('.immeuble')
   immeubles.forEach((immeubleHTML, index) => {
     immeubleHTML.addEventListener('click', () => {
-       headerToggle(1)
-        modal.classList.remove('hidden')
+      headerToggle(1)
+      modal.classList.remove('hidden')
+      modalContainer.innerHTML =
+      `<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${biens[index].img}" alt="burger image"></img>
+            <div class="p-6">
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${biens[index].nom}</h1>
+                <p class="leading-relaxed mb-3">${biens[index].description}</p>
+                <div class="flex items-center flex-wrap"></div>
+            </div>`
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          modal.classList.add('hidden');
+        }
+      })
+      span.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      })
     })
   })
 }
 
 getDataFirebase()
 
-span.addEventListener('click', () => {
-  modal.classList.add('hidden');
-})
+
+
