@@ -4,6 +4,7 @@ const container = document.querySelector('#immo-container');
 const modal = document.querySelector('#boite-modale');
 const modalContainer = document.querySelector('#modal-container');
 const span = document.querySelector('.close');
+let headerActiv = 0;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getFirestore, collection, addDoc, updateDoc, deleteDoc, setDoc, getDoc, where, writeBatch, query, orderBy, doc, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
@@ -29,7 +30,7 @@ const getDocument = async (collectionName) => {
 }
 
 const headerToggle = (nbToggle) => {
-  if ((window.scrollY > 70) || (nbToggle == 1)) {
+  if (((window.scrollY > 70) && (headerActiv == 0))) {
     header.classList.remove('p-5');
     header.classList.add('p-1');
     logoHeader.width = logoHeader.height = "100";
@@ -75,7 +76,8 @@ const getDataFirebase = async() => {
   const immeubles = document.querySelectorAll('.immeuble')
   immeubles.forEach((immeubleHTML, index) => {
     immeubleHTML.addEventListener('click', () => {
-      headerToggle(1)
+      headerActiv = 1;
+      headerToggle(1);
       modal.classList.remove('hidden')
       modalContainer.innerHTML =
       `<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${biens[index].img}" alt="burger image"></img>
@@ -87,10 +89,14 @@ const getDataFirebase = async() => {
       document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
           modal.classList.add('hidden');
+          headerActiv = 0;
+          headerToggle()
         }
       })
       span.addEventListener('click', () => {
         modal.classList.add('hidden');
+        headerActiv = 0;
+        headerToggle()
       })
     })
   })
