@@ -53,7 +53,7 @@ const displayProperty = (propertyList) => {
       <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${property.img}" alt="Photo du projet"></img>
       <div class="p-6">
         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${property.prix} €</h2>
-        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${property.nom}</h1>
+        <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${property.nom}</h1>
         <p class="leading-relaxed mb-3">${property.description}</p>
         <div class="flex items-center flex-wrap">
           <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">En savoir plus
@@ -80,12 +80,13 @@ const getDataFirebase = async() => {
       headerToggle(1);
       modal.classList.remove('hidden')
       modalContainer.innerHTML =
-      `<img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${biens[index].img}" alt="burger image"></img>
-            <div class="p-6">
-                <h1 class="title-font text-lg font-medium text-gray-900 mb-3">${biens[index].nom}</h1>
-                <p class="leading-relaxed mb-3">${biens[index].description}</p>
-                <div class="flex items-center flex-wrap"></div>
-            </div>`
+      `<div class="p-8">
+          <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${biens[index].nom}</h1>
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center rounded-lg mb-3" src="${biens[index].img}" alt="immo img"></img>
+          <p class="leading-relaxed mb-3">${biens[index].description}</p>
+          <iframe class="rounded-lg w-full" src="${biens[index].map ? biens[index].map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="flex items-center flex-wrap"></div>
+      </div>`
       document.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
           modal.classList.add('hidden');
@@ -103,6 +104,3 @@ const getDataFirebase = async() => {
 }
 
 getDataFirebase()
-
-
-
