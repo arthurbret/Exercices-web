@@ -48,15 +48,16 @@ window.addEventListener('scroll', function() {
 const displayProperty = (propertyList) => {
  propertyList.forEach(property => {
     container.innerHTML += 
-`<div class="p-4 md:w-1/3 immeuble cursor-pointer">
+`<div class="p-4 md:w-1/3">
     <div class="h-full border-2 border-gray-300 border-opacity-60 rounded-xl overflow-hidden">
       <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="${property.img}" alt="Photo du projet"></img>
       <div class="p-6">
         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${property.prix} €</h2>
         <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${property.nom}</h1>
         <p class="leading-relaxed mb-3">${property.description}</p>
-        <div class="flex items-center flex-wrap">
-          <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 cursor-pointer">En savoir plus
+        <div id="apercu" class="flex items-center justify-center flex-wrap text-indigo-500 gap-1 cursor-pointer bg-gray-200 rounded-full h-14">
+          <span class="material-symbols-outlined">visibility</span>
+          <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 font-bold">Aperçu rapide
             <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
@@ -73,7 +74,7 @@ const getDataFirebase = async() => {
   const biens = await getDocument("biens")
   console.log("biens", biens)
   displayProperty(biens)
-  const immeubles = document.querySelectorAll('.immeuble')
+  const immeubles = document.querySelectorAll('#apercu')
   immeubles.forEach((immeubleHTML, index) => {
     immeubleHTML.addEventListener('click', () => {
       headerActiv = 1;
