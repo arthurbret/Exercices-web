@@ -55,18 +55,18 @@ const displayProperty = (propertyList) => {
         <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">${property.prix} €</h2>
         <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${property.nom}</h1>
         <p class="leading-relaxed mb-3">${property.description}</p>
-        <div id="apercu" class="flex items-center justify-center flex-wrap text-indigo-500 gap-1 cursor-pointer border-4 border-gray-200 bg-white rounded-full h-14 hover:bg-gray-200 transition">
-          <span class="material-symbols-outlined">visibility</span>
-          <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 font-bold">Aperçu rapide
-          </a>
-        </div>
-        <div id="plus" class="flex items-center justify-center flex-wrap text-indigo-500 gap-1 cursor-pointer border-4 border-gray-200 bg-white rounded-full h-14 hover:bg-gray-200 transition mt-2">
-          <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 font-bold">En savoir plus
-            <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14"></path>
-              <path d="M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
+        <div class="flex items-center flex-wrap gap-2 w-full">
+          <div id="apercu" class="flex items-center justify-center flex-wrap text-indigo-500 gap-1 cursor-pointer border-4 border-gray-200 bg-white rounded-full h-14 w-14 hover:bg-gray-200 transition">
+            <span class="material-symbols-outlined">visibility</span>
+          </div>
+          <div id="plus" class="flex items-center justify-center flex-wrap text-indigo-500 gap-1 cursor-pointer border-4 border-gray-200 bg-white rounded-full h-14 w-48 hover:bg-gray-200 transition">
+            <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0 font-bold">En savoir plus
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -79,6 +79,7 @@ const getDataFirebase = async() => {
   console.log("biens", biens)
   displayProperty(biens)
   const immeubles = document.querySelectorAll('#apercu')
+  const plus = document.querySelectorAll('#plus')
   immeubles.forEach((immeubleHTML, index) => {
     immeubleHTML.addEventListener('click', () => {
       headerActiv = 1;
@@ -104,6 +105,11 @@ const getDataFirebase = async() => {
         headerActiv = 0;
         headerToggle()
       })
+    })
+  })
+  plus.forEach((plusHTML, index) => {
+    plusHTML.addEventListener('click', () => {
+      location.assign(`./pageImmo.html?id=${biens[index].id}`, '_blank')
     })
   })
 }
