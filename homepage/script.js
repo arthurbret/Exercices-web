@@ -3,8 +3,10 @@ const logoHeader = document.querySelector('#logo-header');
 const container = document.querySelector('#immo-container');
 const modal = document.querySelector('#boite-modale');
 const modalContainer = document.querySelector('#modal-container');
+const containerImmo = document.querySelector('#container-immeuble');
 const span = document.querySelector('.close');
 let headerActiv = 0;
+let indexClick = 0;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
 import { getFirestore, collection, addDoc, updateDoc, deleteDoc, setDoc, getDoc, where, writeBatch, query, orderBy, doc, limit, getDocs } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js";
 
@@ -29,6 +31,7 @@ const getDocument = async (collectionName) => {
   return DocumentList
 }
 
+// Fonction qui gère la taille du header en fonction d'une variable
 const headerToggle = (nbToggle) => {
   if (((window.scrollY > 70) && (headerActiv == 0))) {
     header.classList.remove('p-5');
@@ -41,10 +44,12 @@ const headerToggle = (nbToggle) => {
   }
 }
 
+// Fonction qui envoie la variable en fonction du scroll de la page
 window.addEventListener('scroll', function() {
   headerToggle();
 });
 
+// Fonction qui affiche les différents immeubles
 const displayProperty = (propertyList) => {
  propertyList.forEach(property => {
     container.innerHTML += 
@@ -73,7 +78,7 @@ const displayProperty = (propertyList) => {
   </div>`
 })}
 
-
+// Fonction qui affiche les infos de l'immeuble dans la modale
 const getDataFirebase = async() => {
   const biens = await getDocument("biens")
   console.log("biens", biens)
@@ -109,9 +114,21 @@ const getDataFirebase = async() => {
   })
   plus.forEach((plusHTML, index) => {
     plusHTML.addEventListener('click', () => {
-      location.assign(`./pageImmo.html?id=${biens[index].id}`, '_blank')
+      indexClick = index;
+      open("./pageImmo.html", '_blank')
+      containerImmo.innerHTML =
+      `<div class="p-8">
+          <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${biens[indexClick].nom}</h1>
+          <img class="lg:h-48 md:h-36 w-full object-cover object-center rounded-lg mb-3" src="${biens[indexClick].img}" alt="immo img"></img>
+          <p class="leading-relaxed mb-3">${biens[indexClick].description}</p>
+          <iframe class="rounded-lg w-full" src="${biens[indexClick].map ? biens[indexClick].map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="flex items-center flex-wrap">coucou</div>
+      </div>`
+      console.log(indexClick)
+
     })
   })
+  
 }
 
 getDataFirebase()

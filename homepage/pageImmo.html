@@ -2,13 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="./script.js" defer="true" type="module"></script>
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/png" href="icon.png" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <script src="./script.js" defer="true" type="module"></script>
 </head>
 <body>
-    
+    <header class="text-white body-font bg-[#0D2352] fixed left-0 right-0 top-0 z-50 rounded-b-lg hover:rounded-b-2xl ease-in duration-300">
+        <div id="header" class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ease-in duration-300">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="index.html">
+            <img id="logo-header" class="object-cover object-center" src="logo.png" width="200" height="200"></img>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+            <a href="./immeubles.html" class="mr-5 hover:text-gray-300">Immeubles</a>
+          <button class=" bg-gray-100 text-black border-0 py-1 px-3 focus:outline-none hover:bg-gray-300 rounded text-base mt-4 md:mt-0"> <a href="https://f0rxpua2p84.typeform.com/to/xCAJusrx">Je veux investir !</a> 
+          </button>
+        </nav>
+        </div>
+    </header>
+
+    <section class="mt-[150px]">
+        <div id="container-immeuble" class="container px-5 py-24 mx-auto flex flex-wrap">
+            
+        </div>
+    </section>
+
+    <footer id="footer" class="text-gray-600 body-font">
+        <div class="container px-5 py-18 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 cursor-default" href="index.html">
+              <img src="logo-without-bg.png" width="75%" height="75%"></img>
+            </a>
+          </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">STEPS</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a href="#hero" class="text-gray-600 hover:text-gray-800">Hero</a>
+                </li>
+                <li>
+                  <a href="#step" class="text-gray-600 hover:text-gray-800">Etapes</a>
+                </li>
+                <li>
+                  <a href="#chiffres" class="text-gray-600 hover:text-gray-800">Chiffres</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2023 divid —
+              <a href="https://www.linkedin.com/in/arthur-bret/" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Arthur Bret</a>
+            </p>
+          </div>
+        </div>
+      </footer> 
 </body>
 </html>
