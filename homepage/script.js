@@ -115,7 +115,7 @@ const getDataFirebase = async() => {
   plus.forEach((plusHTML, index) => {
     plusHTML.addEventListener('click', () => {
       indexClick = index;
-      open("./pageImmo.html", '_blank')
+      location.assign(`./pageImmo.html?id=${biens[index].id}`, '_blank')
       containerImmo.innerHTML =
       `<div class="p-8">
           <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${biens[indexClick].nom}</h1>
@@ -124,8 +124,6 @@ const getDataFirebase = async() => {
           <iframe class="rounded-lg w-full" src="${biens[indexClick].map ? biens[indexClick].map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="flex items-center flex-wrap">coucou</div>
       </div>`
-      console.log(indexClick)
-
     })
   })
   
