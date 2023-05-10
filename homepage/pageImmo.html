@@ -37,6 +37,22 @@
         </div>
     </section>
 
+    <script>
+
+        const containerImmo = document.getElementById('container-immeuble');
+        const selectedImmo = JSON.parse(localStorage.getItem("selectedImmo"));
+        const html = `
+          <div class="p-8">
+            <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${selectedImmo.nom}</h1>
+            <img class="lg:h-48 md:h-36 w-full object-cover object-center rounded-lg mb-3" src="${selectedImmo.img}" alt="immo img"></img>
+            <p class="leading-relaxed mb-3">${selectedImmo.description}</p>
+            <iframe class="rounded-lg w-full" src="${selectedImmo.map ? selectedImmo.map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        `;
+        containerImmo.innerHTML = html;
+        localStorage.removeItem("selectedImmo"); // On supprime les données du localStorage une fois qu'on les a utilisées
+    </script>
+
     <footer id="footer" class="text-gray-600 body-font">
         <div class="container px-5 py-18 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">

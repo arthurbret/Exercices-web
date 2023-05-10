@@ -115,18 +115,27 @@ const getDataFirebase = async() => {
   plus.forEach((plusHTML, index) => {
     plusHTML.addEventListener('click', () => {
       indexClick = index;
-      location.assign(`./pageImmo.html?id=${biens[index].id}`, '_blank')
-      containerImmo.innerHTML =
-      `<div class="p-8">
-          <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${biens[indexClick].nom}</h1>
-          <img class="lg:h-48 md:h-36 w-full object-cover object-center rounded-lg mb-3" src="${biens[indexClick].img}" alt="immo img"></img>
-          <p class="leading-relaxed mb-3">${biens[indexClick].description}</p>
-          <iframe class="rounded-lg w-full" src="${biens[indexClick].map ? biens[indexClick].map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          <div class="flex items-center flex-wrap">coucou</div>
-      </div>`
+      localStorage.setItem("selectedImmo", JSON.stringify(biens[index]));
+      const newWindow = window.location.assign(`./pageImmo.html?id=${biens[index].id}`, '_blank');
+  
+  // Attendre que la page soit chargée
+  newWindow.addEventListener('load', () => {
+
+    // Récupérer l'élément containerImmo de la nouvelle page chargée
+    const newContainerImmo = newWindow.document.getElementById('container-immeuble');
+    // Mettre à jour le contenu de l'élément containerImmo de la nouvelle page
+    newContainerImmo.innerHTML = `
+      <div class="p-8">
+        <h1 class="title-font text-3xl font-medium text-gray-900 mb-3" style="font-family: 'Foldit', cursive;">${biens[indexClick].nom}</h1>
+        <img class="lg:h-48 md:h-36 w-full object-cover object-center rounded-lg mb-3" src="${biens[indexClick].img}" alt="immo img"></img>
+        <p class="leading-relaxed mb-3">${biens[indexClick].description}</p>
+        <iframe class="rounded-lg w-full" src="${biens[indexClick].map ? biens[indexClick].map : ''}" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="flex items-center flex-wrap">coucou</div>
+      </div>
+    `;
+  });
     })
   })
-  
 }
 
 getDataFirebase()
